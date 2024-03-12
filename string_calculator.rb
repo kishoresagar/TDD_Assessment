@@ -21,3 +21,13 @@ def add(nums)
 	nums.split(/,|\n/).map(&:to_i).sum
 end
 puts add("1\n2,3")
+
+#Step4: Support Different delimiters
+def add(nums)
+	return 0 if nums.empty?
+	if nums.start_with?("//")
+		nums = nums.split("\n")[1]
+	end
+	nums.split(/;/).map(&:to_i).sum
+end
+puts add("//;\n1;2")
