@@ -14,3 +14,10 @@ def add(nums)
 	nums.split(",").map(&:to_i).sum
 end
 puts add("1,5,6,7")
+
+#Step3: Handle new lines between numbers
+def add(nums)
+	return 0 if nums.empty?
+	nums.split(/,|\n/).map(&:to_i).sum
+end
+puts add("1\n2,3")
