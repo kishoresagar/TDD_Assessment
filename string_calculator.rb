@@ -31,3 +31,19 @@ def add(nums)
 	nums.split(/;/).map(&:to_i).sum
 end
 puts add("//;\n1;2")
+
+#Step5: Handle Negative Numbers
+def add(nums)
+  return 0 if nums.empty?
+  nums_array = nums.split(",").map(&:to_i)
+  negatives = nums_array.select { |n| n < 0 }
+  if negatives.any?
+    raise "negative numbers not allowed: #{negatives.join(",")}"
+  end
+  nums_array.sum
+end
+begin
+  puts add("1,-2,3,-4")
+rescue StandardError => exception
+  puts "Exception: #{exception.message}"
+end
